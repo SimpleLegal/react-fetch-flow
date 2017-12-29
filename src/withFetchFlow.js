@@ -5,14 +5,12 @@ import { SpinnerGoogle, Error } from 'components'
 
 const withFetchFlow = ({ getFetchAction, refs = {} }) => {
   return WrappedComponent => {
-    @connect(({ app }) => {
-      const { loadingFlags, isError } = app
-      const isLoading = loadingFlags[refs.isLoading]
-      const dataLoaded = loadingFlags[refs.dataLoaded]
+    @connect(({ loading }) => {
+      const isLoading = loading[refs.isLoading]
+      const dataLoaded = loading[refs.dataLoaded]
       return {
         isLoading,
-        dataLoaded,
-        isError
+        dataLoaded
       }
     })
     @withRouter
@@ -48,9 +46,6 @@ const withFetchFlow = ({ getFetchAction, refs = {} }) => {
       }
 
       render() {
-        if (this.props.isError) {
-          return <Error />
-        }
 
         if (this.props.isLoading) {
           return <SpinnerGoogle />
