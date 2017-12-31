@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { SpinnerGoogle, Error } from 'components'
+import * as ACT from './actionTypes'
 
 const withFetchFlow = ({ getFetchAction, refs = {}, loadingComponent }) => {
   return WrappedComponent => {
