@@ -1,4 +1,4 @@
-import * as ACT from 'actions/actionTypes'
+import * as ACT from './actionTypes'
 import get from 'lodash/get'
 
 let instance = null
