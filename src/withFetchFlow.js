@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { SpinnerGoogle, Error } from 'components'
 
-const withFetchFlow = ({ getFetchAction, refs = {} }) => {
+const withFetchFlow = ({ getFetchAction, refs = {}, loadingComponent }) => {
   return WrappedComponent => {
     @connect(({ loading }) => {
       const isLoading = loading[refs.isLoading]
@@ -48,7 +48,7 @@ const withFetchFlow = ({ getFetchAction, refs = {} }) => {
       render() {
 
         if (this.props.isLoading) {
-          return <SpinnerGoogle />
+          return loadingComponent ? loadingComponent : <SpinnerGoogle />
         }
 
         return <WrappedComponent {...this.props} />
