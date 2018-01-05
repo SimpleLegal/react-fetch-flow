@@ -13,9 +13,7 @@ React applications that asynchronusly fetch data from a server and then render t
 
 4. How does browser navigation interact with data fetching?
 
-Most importantly...
-
-## How Can I have a consistent, intuitive experience for the user while using my single page application?
+5. How can I have a consistent, intuitive experience for the user?
 
 Redux Fetch Flow is a Middleware, Higher Order Component (HOC), and simple Reducer that takes care or setting loading states, client side routing behavior (as it relates to loading), and data fetching. 
 
