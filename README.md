@@ -15,9 +15,81 @@ React applications that asynchronusly fetch data from a server and then render t
 
 Most importantly...
 
-### How Can I have a consistent, intuitive experience for the user while using my single page application?
+## How Can I have a consistent, intuitive experience for the user while using my single page application?
 
+Redux Fetch Flow is a Middleware, Higher Order Component (HOC), and simple Reducer that takes care or setting loading states, client side routing behavior (as it relates to loading), and data fetching. 
 
+There are 3 steps in order to get started:
 
+### 1. Import Middleware
 
+This manages when to set loading states. You will need to set up your request actions to have ```_REQUESTED``` and ```_SUCCESS``` in order for this to work properly. 
+
+```javascript
+
+import { fetchFlowMiddleware } from 'redux-fetch-flow'
+
+const middleware = [fetchFlowMiddleware] //add more if needed
+
+const store = createStore(
+  rootReducer, // new root reducer with router state
+  {},
+  applyMiddleware(...middleware)
+)
+
+```
+
+### 2. Import Reducer
+
+These will contain the loading states used by the HOC
+
+```javascript
+import { combineReducers } from 'redux'
+import {loadingReducer} from 'redux-fetch-flow'
+
+const rootReducer = combineReducers({
+  //...other reducers
+  loading: loadingReducer
+})
+
+ ```
+ 
+ ### 3. Import Higher Order Component
+ 
+Apply the HOC to your container components that you want to have fetching responsibility, generally the component that your react-router ```<Route />``` component renders.
+ 
+ 
+ ```javascript
+ 
+ import React from 'react'
+ import { withFetchFlow } from 'redux-fetch-flow'
+ import * as ACT from 'actions/actionTypes'
+ 
+ @withFetchFlow({
+  refs: {
+    isLoading: 'todoLoading',
+    dataLoaded: 'todoLoaded'
+  },
+  getFetchAction: props => ({
+    type: ACT.INIT_TODOS_LIST_REQUESTED,
+    payload: {
+      todoId: props.match.params.todoId
+    }
+  })
+})
+@connect(({todos}) => {
+  return {
+    todo: todos.currentTodo
+  }
+})
+class Todo extends React.Component {
+  
+  render(){
+    return (
+      <div>{this.props.todo.name}</div>
+    )
+  }
+}
+ 
+```
 
