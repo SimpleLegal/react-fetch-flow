@@ -1,5 +1,6 @@
 # redux-fetch-flow
-An opinionated framework for loading states, data fetching and route behavior - for react applications utilizing react-router and redux
+An opinionated framework for loading states, data fetching and route behavior
+For react applications utilizing react-router and redux
 
 ### Introduction
 
