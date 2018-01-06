@@ -77,9 +77,9 @@ Apply the HOC to your container components that you want to have fetching respon
    })
 })
 @connect(({todos}) => {
-  return {
-    todo: todos.currentTodo
-  }
+   return {
+     todo: todos.currentTodo
+   }
 })
 class Todo extends React.Component {
   render(){
