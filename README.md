@@ -67,8 +67,8 @@ Apply the HOC to your container components that you want to have fetching respon
  import SpinnerGoogle from './SpinnerGoogle'
  
  @withFetchFlow({
-   loadingComponent: <SpinnerGoogle />,
-   loadingRef: "todo",
+   component: <SpinnerGoogle />,
+   ref: "todo",
    getFetchAction: props => ({
      type: ACT.INIT_TODOS_LIST_REQUESTED,
      payload: {
