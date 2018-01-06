@@ -64,8 +64,10 @@ Apply the HOC to your container components that you want to have fetching respon
  import React from 'react'
  import { withFetchFlow } from 'redux-fetch-flow'
  import * as ACT from 'actions/actionTypes'
+ import SpinnerGoogle from './SpinnerGoogle
  
  @withFetchFlow({
+  loadingComponent: <SpinnerGoogle />,
   refs: {
     isLoading: 'todoLoading',
     dataLoaded: 'todoLoaded'
