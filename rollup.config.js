@@ -1,24 +1,17 @@
 import babel from "rollup-plugin-babel";
 
-// rollup.config.js
 export default {
-  input: "src/main.js",
+  entry: "src/index.js",
+  targets: [{ dest: "dist/index.js", format: "es" }],
   plugins: [
     babel({
-      exclude: "node_modules/**",
-      plugins: [
-        "external-helpers",
-        "transform-decorators-legacy",
-        "transform-class-properties"
-      ],
-      externalHelpers: true,
+      exclude: ["node_modules/**"],
+      plugins: ["transform-decorators-legacy", "transform-class-properties"],
       presets: [
-          ['es2015', { modules: false }], 'stage-0', 'react'
+        ["es2015", { "modules": false }],
+        "react",
+        "stage-0"
       ]
     })
-  ],
-  output: {
-    file: "bundle.js",
-    format: "cjs"
-  }
+  ]
 };
