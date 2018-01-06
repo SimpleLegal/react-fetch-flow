@@ -7,7 +7,7 @@ For react applications utilizing react-router and redux
 
 React applications that asynchronusly fetch data from a server have common problems with not so obvious solutions:
 
-1. Where do I put asynchronus data fetching in my react component? (or should it go in redux)
+1. Where do I put asynchronus data fetching in my application?
 
 2. How do I set loading states? How can I avoid putting isLoading and dataLoaded flags everywhere?
 
