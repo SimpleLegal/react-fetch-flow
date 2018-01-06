@@ -68,13 +68,13 @@ const fetchFlowMiddleware = ({ dispatch }) => next => action => {
     refCache.setRefs(action, action.refs, reqStr)
     payload[action.refs.isLoading] = true
     payload[action.refs.dataLoaded] = action.dataLoaded
-    result = dispatch({ type: ACT.SET_LOADING_FLAGS, payload })
+    result = dispatch({ type: SET_LOADING_FLAGS, payload })
   }
 
   if (isSuccess(action)) {
     payload[cachedRefs.isLoading] = false
     payload[cachedRefs.dataLoaded] = true
-    result = dispatch({ type: ACT.SET_LOADING_FLAGS, payload })
+    result = dispatch({ type: SET_LOADING_FLAGS, payload })
 
     // clear cache after success
     refCache.setRefs(action, {}, sucStr)
