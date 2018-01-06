@@ -5,7 +5,7 @@ For react applications utilizing react-router and redux
 
 ### Introduction
 
-React applications that asynchronusly fetch data from a server and then render that data have common problems with not so obvious solutions:
+React applications that asynchronusly fetch data from a server have common problems with not so obvious solutions:
 
 1. Where do I put asynchronus data fetching in my react component? (or should it go in redux)
 
