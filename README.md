@@ -67,14 +67,14 @@ Apply the HOC to your container components that you want to have fetching respon
  import SpinnerGoogle from './SpinnerGoogle'
  
  @withFetchFlow({
-  loadingComponent: <SpinnerGoogle />,
-  loadingRef: "todo",
-  getFetchAction: props => ({
-    type: ACT.INIT_TODOS_LIST_REQUESTED,
-    payload: {
-      todoId: props.match.params.todoId
-    }
-  })
+   loadingComponent: <SpinnerGoogle />,
+   loadingRef: "todo",
+   getFetchAction: props => ({
+     type: ACT.INIT_TODOS_LIST_REQUESTED,
+     payload: {
+       todoId: props.match.params.todoId
+     }
+   })
 })
 @connect(({todos}) => {
   return {
@@ -82,7 +82,6 @@ Apply the HOC to your container components that you want to have fetching respon
   }
 })
 class Todo extends React.Component {
-  
   render(){
     return (
       <div>{this.props.todo.name}</div>
