@@ -1,10 +1,10 @@
-import * as ACT from 'actionTypes'
+import { SET_LOADING_FLAGS } from './actionTypes'
 import { createReducer } from 'redux-create-reducer'
 
 const initialState = {}
 
 const loadingReducer = createReducer(initialState, {
-  [ACT.SET_LOADING_FLAGS](state, action) {
+  [SET_LOADING_FLAGS](state, action) {
     return {
       ...state,
       ...action.payload

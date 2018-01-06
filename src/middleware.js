@@ -1,4 +1,4 @@
-import * as ACT from './actionTypes'
+import { SET_LOADING_FLAGS } from './actionTypes'
 import get from 'lodash/get'
 
 let instance = null
