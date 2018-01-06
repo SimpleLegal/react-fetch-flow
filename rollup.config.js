@@ -2,7 +2,7 @@ import babel from "rollup-plugin-babel";
 
 export default {
   entry: "src/index.js",
-  targets: [{ dest: "dist/index.js", format: "es" }],
+  targets: [{ dest: "dist/bundle.js", format: "es" }],
   plugins: [
     babel({
       exclude: ["node_modules/**"],
