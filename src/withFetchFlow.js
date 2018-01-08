@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 const withFetchFlow = ({ getFetchAction, refs = {}, loadingComponent }) => {
   return WrappedComponent => {
     @connect(({ loading }) => {
-      const isLoading = loading[refs.isLoading];
-      const dataLoaded = loading[refs.dataLoaded];
+      const isLoading = loading[`${ref}Loading`];
+      const dataLoaded = loading[`${ref}Loaded`];
       return {
         isLoading,
         dataLoaded
@@ -25,22 +25,26 @@ const withFetchFlow = ({ getFetchAction, refs = {}, loadingComponent }) => {
           return;
         }
 
-        action.isLoading = true;
-        action.refs = refs;
+        action.refs = {
+          isLoading: `${ref}Loading`,
+          dataLoaded: `${ref}Loaded`
+        };
         this.props.dispatch(action);
       }
 
       componentWillReceiveProps(nextProps) {
         const { history, location } = this.props;
-        // detects refresh by clicking nav button, refreshes if clicked
+        // detects refresh by navigating to same route
         let action = getFetchAction(nextProps);
         if (
           history.action === "PUSH" &&
           nextProps.location.key !== location.key &&
           location.pathname === nextProps.location.pathname
         ) {
-          action.isLoading = true;
-          action.refs = refs;
+          action.refs = {
+            isLoading: `${ref}Loading`,
+            dataLoaded: `${ref}Loaded`
+          };
           this.props.dispatch(action);
         }
       }
