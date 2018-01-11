@@ -1,5 +1,5 @@
 # redux-fetch-flow
-An opinionated framework for loading states, data fetching and route behavior
+An opinionated framework for loading states, data fetching and routing behavior
 
 For react applications utilizing react-router and redux
 
@@ -67,25 +67,21 @@ Apply the HOC to your container components that you want to have fetching respon
  import SpinnerGoogle from './SpinnerGoogle'
  
  @withFetchFlow({
-  loadingComponent: <SpinnerGoogle />,
-  refs: {
-    isLoading: 'todoLoading',
-    dataLoaded: 'todoLoaded'
-  },
-  getFetchAction: props => ({
-    type: ACT.INIT_TODOS_LIST_REQUESTED,
-    payload: {
-      todoId: props.match.params.todoId
-    }
-  })
+   component: <SpinnerGoogle />, // loading component
+   ref: "todo",                  // flag identifier
+   getFetchAction: props => ({
+     type: ACT.INIT_TODOS_LIST_REQUESTED,
+     payload: {
+       todoId: props.match.params.todoId
+     }
+   })
 })
 @connect(({todos}) => {
-  return {
-    todo: todos.currentTodo
-  }
+   return {
+     todo: todos.currentTodo
+   }
 })
 class Todo extends React.Component {
-  
   render(){
     return (
       <div>{this.props.todo.name}</div>
