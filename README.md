@@ -15,7 +15,7 @@ React applications that asynchronusly fetch data from a server have common probl
 
 4. How does browser navigation interact with data fetching?
 
-5. How can I have a consistent, intuitive experience for the user?
+5. How can I have a consistent, intuitive experience for the user when navigating my application?
 
 Redux Fetch Flow is a Middleware, Higher Order Component (HOC), and simple Reducer that takes care or setting loading states, client side routing behavior (as it relates to loading), and data fetching. 
 
@@ -29,11 +29,11 @@ This manages when to set loading states. You will need to set up your request ac
 
 import { fetchFlowMiddleware } from 'redux-fetch-flow'
 
-const middleware = [fetchFlowMiddleware] //add more if needed
+const middleware = [fetchFlowMiddleware] //add more if needed=
 
 const store = createStore(
   rootReducer, // new root reducer with router state
-  {},
+  {},          // initialState
   applyMiddleware(...middleware)
 )
 
@@ -64,12 +64,12 @@ Apply the HOC to your container components that you want to have fetching respon
  import React from 'react'
  import { withFetchFlow } from 'redux-fetch-flow'
  import * as ACT from 'actions/actionTypes'
- import SpinnerGoogle from './SpinnerGoogle'
+ import Loading from './Loading'
  
  @withFetchFlow({
-   component: <SpinnerGoogle />, // loading component
-   ref: "todo",                  // flag identifier
-   getFetchAction: props => ({
+   component: <Loading />, // loading component
+   flag: "todo",                  // loading and loaded flag identifiers
+   getFetchAction: props => ({ // put action that will be dispatched - follows _REQUESTED / _SUCCESS 
      type: ACT.INIT_TODOS_LIST_REQUESTED,
      payload: {
        todoId: props.match.params.todoId
