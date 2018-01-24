@@ -5177,6 +5177,17 @@ react-redux@^5.0.6:
     loose-envify "^1.1.0"
     prop-types "^15.5.10"
 
+react-router-dom@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.2.2.tgz#c8a81df3adc58bba8a76782e946cbd4eae649b8d"
+  dependencies:
+    history "^4.7.2"
+    invariant "^2.2.2"
+    loose-envify "^1.3.1"
+    prop-types "^15.5.4"
+    react-router "^4.2.0"
+    warning "^3.0.0"
+
 react-router@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-4.2.0.tgz#61f7b3e3770daeb24062dae3eedef1b054155986"
@@ -5339,13 +5350,14 @@ redux-create-reducer@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/redux-create-reducer/-/redux-create-reducer-1.1.1.tgz#f9ea976a8d3e14c3f32898e25709183c93b0b214"
 
-redux-fetch-flow@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/redux-fetch-flow/-/redux-fetch-flow-0.0.7.tgz#cc8025cfa76fd15328d8dfd6313162463cbcb1c7"
+redux-fetch-flow@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/redux-fetch-flow/-/redux-fetch-flow-0.0.8.tgz#b24ebb4dd53a9a39f0e741e106f38ebf884caef4"
   dependencies:
     react "^16.2.0"
     react-redux "^5.0.6"
     react-router "^4.2.0"
+    react-router-dom "^4.2.2"
     redux "^3.7.2"
     redux-create-reducer "^1.1.1"
 
