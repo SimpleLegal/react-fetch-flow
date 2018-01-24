@@ -6,7 +6,7 @@ const initialState = {
   todos: []
 }
 
-const appReducer = (state = {}, action) => {
+const appReducer = (state = initialState, action) => {
   switch(action.type){
     case "TODOS_LIST_SUCCESS":
       const { todos } = action.payload
@@ -21,6 +21,7 @@ const appReducer = (state = {}, action) => {
         invoices
       }
   }
+  return state
 }
 
 

@@ -5350,9 +5350,9 @@ redux-create-reducer@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/redux-create-reducer/-/redux-create-reducer-1.1.1.tgz#f9ea976a8d3e14c3f32898e25709183c93b0b214"
 
-redux-fetch-flow@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/redux-fetch-flow/-/redux-fetch-flow-0.0.8.tgz#b24ebb4dd53a9a39f0e741e106f38ebf884caef4"
+redux-fetch-flow@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/redux-fetch-flow/-/redux-fetch-flow-0.0.9.tgz#3344cc9787d68b58bfe9bb07f8faf416d5fe12b1"
   dependencies:
     react "^16.2.0"
     react-redux "^5.0.6"
