@@ -11,16 +11,18 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <header className="App-header">
-            <Link to="/todos">Todos</Link>
-            <Link to="/invoices">Invoices</Link>
-          </header>
-          <p className="App-intro">
-            <Switch>
-              <Route path="/todos" component={Todos}/>
-              <Route path="/invoices" component={Invoices}/>
-            </Switch>
-          </p>
+          <main>
+            <header className="App-header">
+              <Link to="/todos">Todos</Link>
+              <Link to="/invoices">Invoices</Link>
+            </header>
+            <p className="App-intro">
+              <Switch>
+                <Route path="/todos" component={Todos}/>
+                <Route path="/invoices" component={Invoices}/>
+              </Switch>
+            </p>
+          </main>
         </Router>
       </div>
     );

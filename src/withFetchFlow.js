@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 
-const withFetchFlow = ({ getFetchAction, refs = {}, loadingComponent }) => {
+const withFetchFlow = ({ getFetchAction, ref="", loadingComponent }) => {
   return WrappedComponent => {
     @connect(({ loading }) => {
       const isLoading = loading[`${ref}Loading`];
