@@ -3,11 +3,11 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 
-const withFetchFlow = ({ getFetchAction, ref="", loadingComponent }) => {
+const withFetchFlow = ({ getFetchAction, loadingRef="", loadingComponent }) => {
   return WrappedComponent => {
     @connect(({ loading }) => {
-      const isLoading = loading[`${ref}Loading`];
-      const dataLoaded = loading[`${ref}Loaded`];
+      const isLoading = loading[`${loadingRef}Loading`];
+      const dataLoaded = loading[`${loadingRef}Loaded`];
       return {
         isLoading,
         dataLoaded
@@ -26,8 +26,8 @@ const withFetchFlow = ({ getFetchAction, ref="", loadingComponent }) => {
         }
 
         action.refs = {
-          isLoading: `${ref}Loading`,
-          dataLoaded: `${ref}Loaded`
+          isLoading: `${loadingRef}Loading`,
+          dataLoaded: `${loadingRef}Loaded`
         };
         this.props.dispatch(action);
       }
@@ -42,8 +42,8 @@ const withFetchFlow = ({ getFetchAction, ref="", loadingComponent }) => {
           location.pathname === nextProps.location.pathname
         ) {
           action.refs = {
-            isLoading: `${ref}Loading`,
-            dataLoaded: `${ref}Loaded`
+            isLoading: `${loadingRef}Loading`,
+            dataLoaded: `${loadingRef}Loaded`
           };
           this.props.dispatch(action);
         }
