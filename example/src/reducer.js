@@ -8,13 +8,13 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
   switch(action.type){
-    case "TODOS_LIST_SUCCESS":
+    case "TODOS_SUCCESS":
       const { todos } = action.payload
       return {
         ...state,
         todos
       }
-    case "INVOICES_LIST_SUCCESS":
+    case "INVOICES_SUCCESS":
       const { invoices } = action.payload
       return {
         ...state,

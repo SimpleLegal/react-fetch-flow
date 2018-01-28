@@ -16,12 +16,10 @@ class App extends Component {
               <Link to="/todos">Todos</Link>
               <Link to="/invoices">Invoices</Link>
             </header>
-            <p className="App-intro">
-              <Switch>
-                <Route path="/todos" component={Todos}/>
-                <Route path="/invoices" component={Invoices}/>
-              </Switch>
-            </p>
+            <Switch>
+              <Route path="/todos" component={Todos}/>
+              <Route path="/invoices" component={Invoices}/>
+            </Switch>
           </main>
         </Router>
       </div>

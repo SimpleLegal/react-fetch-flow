@@ -11,9 +11,11 @@ import createSagaMiddleware from "redux-saga";
 import { fetchFlowMiddleware } from "redux-fetch-flow";
 import rootSaga from './rootSaga'
 
+import logger from 'redux-logger'
+
 const sagaMiddleware = createSagaMiddleware()
 
-let store = createStore(rootReducer, applyMiddleware(fetchFlowMiddleware, sagaMiddleware));
+let store = createStore(rootReducer, applyMiddleware(fetchFlowMiddleware, sagaMiddleware, logger));
 
 sagaMiddleware.run(rootSaga)
 
