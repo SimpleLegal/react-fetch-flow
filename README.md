@@ -5,6 +5,12 @@ For react applications utilizing react-router and redux
 
 [Demo](https://darrendahl.github.io/fetch-flow)
 
+### Why
+
+Fetching data on page load in react applications is not straightforward. You have to set loading states, use component lifecycle methods to fetch, while making sure you dont fetch data too often (or not enough) when your user navigates around your application. The result is bug prone code that you have to think through a lot to get right (and you shouldn't have to!)
+
+This library solves this problem.
+
 ### Introduction
 
 React applications that asynchronusly fetch data from a server have common problems with not so obvious solutions:
