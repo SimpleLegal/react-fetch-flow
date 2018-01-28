@@ -3,7 +3,7 @@ An opinionated framework for loading states, data fetching and routing behavior
 
 For react applications utilizing react-router and redux
 
-[Demo](https://darrendahl.github.io/invioces)
+[Demo](https://darrendahl.github.io/fetch-flow)
 
 ### Introduction
 
