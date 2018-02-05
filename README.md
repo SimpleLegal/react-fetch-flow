@@ -19,6 +19,10 @@ This library solves this problem.
 
 Redux Fetch Flow is a Middleware, Higher Order Component (HOC), and simple Reducer that takes care or setting loading states, client side routing behavior (as it relates to loading), and data fetching. 
 
+It follows a philosophy to make the implementation simple and intuitive for the user. This philosophy is that the user wants the most up to date data as they navigate throughout the application without having to refresh the page, unless they explicitly say so (for instance, the user presses back). So, redux-fetch-flow will fetch data and set loading states whenever they push to browser history, and no other time. 
+
+This philosophy leads to a straightforward implementation that is intuitive to the user.
+
 Use npm or yarn to add:
 
 ```yarn add redux-fetch-flow```
