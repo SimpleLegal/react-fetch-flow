@@ -7,9 +7,11 @@ For react applications utilizing react-router and redux
 
 ### Why
 
-Fetching data on page load in Single Page Applications is not straightforward. 
-You have to set loading states, use component lifecycle methods to fetch, while making sure you dont fetch data too often (or not enough) when your user navigates around your application. 
-The result is bug prone code that you have to think through a lot to get right (and you shouldn't have to!)
+Fetching data on page load in React Single Page Applications is not straightforward. 
+
+You must set loading states, use component lifecycle methods to fetch, while making sure you dont fetch data too often (or not enough) when the user navigates around your application. 
+
+The result is a bug prone implementation that you have to think through a lot to get right (and you shouldn't have to!)
 
 This library solves this problem.
 
