@@ -29,7 +29,7 @@ Use npm or yarn to add:
 
 There are 3 steps in order to get started:
 
-### 1. Import Middleware
+#### 1. Import Middleware
 
 This manages when to set loading states. You will need to set up your request actions to have ```_REQUESTED``` and ```_SUCCESS``` in order for this to work properly. 
 
@@ -47,7 +47,7 @@ const store = createStore(
 
 ```
 
-### 2. Import Reducer
+#### 2. Import Reducer
 
 These will contain the loading states used by the HOC
 
@@ -62,7 +62,7 @@ const rootReducer = combineReducers({
 
  ```
  
- ### 3. Import Higher Order Component
+ #### 3. Import Higher Order Component
  
 Apply the HOC to your container components that you want to have fetching responsibility, generally the component that your react-router ```<Route />``` component renders.
  
