@@ -15,6 +15,7 @@ The result is a bug prone implementation that you have to think through a lot to
 
 This library solves this problem.
 
+### What
 
 Redux Fetch Flow is a Middleware, Higher Order Component (HOC), and simple Reducer that takes care or setting loading states, client side routing behavior (as it relates to loading), and data fetching. 
 
@@ -23,6 +24,8 @@ Use npm or yarn to add:
 ```yarn add redux-fetch-flow```
 
 ```npm install redux-fetch-flow --save```
+
+### How
 
 There are 3 steps in order to get started:
 
