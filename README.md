@@ -29,7 +29,7 @@ Use npm or yarn to add:
 
 ```npm install redux-fetch-flow --save```
 
-### How to integrate with React
+### How to integrate with only React
 
 ```javascript
 import React from 'react'
@@ -52,7 +52,7 @@ class Todo extends React.Component {
 
 ```
 
-### How to integrate with Redux
+### How to integrate with React/Redux
 
 There are 3 steps in order to get started:
 
