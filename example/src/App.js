@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {withFetchFlow} from 'redux-fetch-flow'
 import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Todos from './Todos'
 import Invoices from './Invoices'

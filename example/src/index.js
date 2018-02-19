@@ -6,7 +6,7 @@ import registerServiceWorker from "./registerServiceWorker";
 
 import rootReducer from "./reducer";
 import {Provider} from "react-redux";
-import { applyMiddleware, compose, createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { fetchFlowMiddleware } from "redux-fetch-flow";
 import rootSaga from './rootSaga'

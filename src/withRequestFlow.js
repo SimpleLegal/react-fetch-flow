@@ -1,8 +1,4 @@
-import React, { Component } from "react";
-import Loading from "./Loading";
-import { connect } from "react-redux";
-import { compose } from "redux";
-import { onRequest } from './fetch'
+import React from "react";
 import { withRouter } from "react-router-dom";
 
 const withRequestFlow = ({ onRequest, flag="", component }) => { 
@@ -18,6 +14,7 @@ const withRequestFlow = ({ onRequest, flag="", component }) => {
       }
 
       componentDidMount(){
+        const { history,  } = this.props;
         const { dataLoaded } = this.state
 
         // detects back button pressing, dont fetch on back button
@@ -62,29 +59,4 @@ const withRequestFlow = ({ onRequest, flag="", component }) => {
   };
 };
 
-const enhance = compose(
-  connect(({ app }) => {
-    const { invoices } = app;
-    return {
-      invoices
-    };
-  }),
-  withRequestFlow({
-    component: <Loading />,
-    flag: "invoices",
-    onRequest
-  })
-);
-
-class Invoices extends Component {
-  static defaultProps = {
-    invoices: []
-  };
-  render() {
-    return this.props.invoices.map((invoice, i) => {
-      return <h2 key={i}>{invoice.name}</h2>;
-    });
-  }
-}
-
-export default enhance(Invoices);
+export default withRequestFlow;

@@ -1,5 +1,5 @@
 import { delay } from 'redux-saga'
-import { put, takeEvery, all, takeLatest } from 'redux-saga/effects'
+import { put, all, takeLatest } from 'redux-saga/effects'
 
 
 function* fetchTodos(){

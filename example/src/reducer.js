@@ -20,8 +20,9 @@ const appReducer = (state = initialState, action) => {
         ...state,
         invoices
       }
+    default: 
+      return state
   }
-  return state
 }
 
 
