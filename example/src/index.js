@@ -5,19 +5,22 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
 import rootReducer from "./reducer";
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { fetchFlowMiddleware } from "redux-fetch-flow";
-import rootSaga from './rootSaga'
+import rootSaga from "./rootSaga";
 
-import logger from 'redux-logger'
+import logger from "redux-logger";
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
-let store = createStore(rootReducer, applyMiddleware(fetchFlowMiddleware, sagaMiddleware, logger));
+let store = createStore(
+  rootReducer,
+  applyMiddleware(fetchFlowMiddleware, sagaMiddleware, logger)
+);
 
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>

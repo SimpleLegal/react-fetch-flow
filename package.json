@@ -1,6 +1,6 @@
 {
   "name": "redux-fetch-flow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/bundle.js",
   "repository": "https://github.com/SimpleLegal/fetch-flow",
   "author": "darrendahl <darrencdahl@gmail.com>",
