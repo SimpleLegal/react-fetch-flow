@@ -1,4 +1,4 @@
-# redux-fetch-flow
+# fetch-flow
 An opinionated framework for loading states, data fetching and routing behavior
 
 For react applications utilizing react-router and redux
@@ -29,7 +29,30 @@ Use npm or yarn to add:
 
 ```npm install redux-fetch-flow --save```
 
-### How
+### How to integrate with React
+
+```javascript
+import React from 'react'
+import { withRequestFlow } from 'redux-fetch-flow'
+import Loading from './Loading'
+import { onRequest } from "./api";
+ 
+@withRequestFlow({
+  component: <Loading />,
+  flag: "todos",
+  onRequest
+})
+class Todo extends React.Component {
+  render(){
+    return (
+      <div>{this.props.todos.map(todo => <h2>todo.name</h2>)}</div>
+    )
+  }
+}
+
+```
+
+### How to integrate with Redux
 
 There are 3 steps in order to get started:
 
