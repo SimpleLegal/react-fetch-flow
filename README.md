@@ -7,25 +7,21 @@ For react applications utilizing react-router and redux
 
 ### Why
 
-Fetching data on page load in Single Page Applications is not straightforward. You have to set loading states, use component lifecycle methods to fetch, while making sure you dont fetch data too often (or not enough) when your user navigates around your application. The result is bug prone code that you have to think through a lot to get right (and you shouldn't have to!)
+Fetching data on page load in React Single Page Applications is not straightforward. 
+
+You must set loading states, use component lifecycle methods to fetch, while making sure you dont fetch data too often (or not enough) when the user navigates around your application. 
+
+The result is a bug prone implementation that you have to think through a lot to get right (and you shouldn't have to!)
 
 This library solves this problem.
 
-### Introduction
-
-React applications that asynchronusly fetch data from a server have common problems with not so obvious solutions:
-
-1. How do I fetch initial data for a given page in my application?
-
-2. How do I set loading states? How can I avoid putting isLoading and dataLoaded flags everywhere?
-
-3. How do I avoid infinite loops on componentDidMount?
-
-4. How does browser navigation interact with data fetching?
-
-5. How can I have a consistent, intuitive experience for the user when navigating my application?
+### What
 
 Redux Fetch Flow is a Middleware, Higher Order Component (HOC), and simple Reducer that takes care or setting loading states, client side routing behavior (as it relates to loading), and data fetching. 
+
+It follows a philosophy to make the implementation simple and intuitive for the user. This philosophy is that the user wants the most up to date data as they navigate throughout the application without having to refresh the page, unless they explicitly say so (for instance, the user presses back). So, redux-fetch-flow will fetch data and set loading states whenever they push to browser history, and no other time. 
+
+This philosophy leads to a straightforward implementation that is intuitive to the user.
 
 Use npm or yarn to add:
 
@@ -33,9 +29,11 @@ Use npm or yarn to add:
 
 ```npm install redux-fetch-flow --save```
 
+### How
+
 There are 3 steps in order to get started:
 
-### 1. Import Middleware
+#### 1. Import Middleware
 
 This manages when to set loading states. You will need to set up your request actions to have ```_REQUESTED``` and ```_SUCCESS``` in order for this to work properly. 
 
@@ -53,7 +51,7 @@ const store = createStore(
 
 ```
 
-### 2. Import Reducer
+#### 2. Import Reducer
 
 These will contain the loading states used by the HOC
 
@@ -68,7 +66,7 @@ const rootReducer = combineReducers({
 
  ```
  
- ### 3. Import Higher Order Component
+ #### 3. Import Higher Order Component
  
 Apply the HOC to your container components that you want to have fetching responsibility, generally the component that your react-router ```<Route />``` component renders.
  
