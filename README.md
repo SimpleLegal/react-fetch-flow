@@ -1,4 +1,4 @@
-# fetch-flow
+# react-fetch-flow
 An opinionated framework for loading states, data fetching and routing behavior
 
 For react applications utilizing react-router and redux
