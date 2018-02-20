@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { withFetchFlow } from 'react-fetch-flow'
 import { onRequest } from "./fetch";
-import { withRouter } from "react-router-dom";
 
 const enhance = compose(
   connect(({ app }) => {

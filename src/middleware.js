@@ -1,5 +1,4 @@
 import { SET_LOADING_FLAGS } from './actionTypes'
-import get from 'lodash/get'
 
 let instance = null
 const sucStr = '_SUCCESS'
@@ -25,13 +24,13 @@ class RefCache {
   }
 
   getRefs(action, str) {
-    const actionType = get(action, 'type', '')
+    const actionType = action.type || ''
     const fetchActionBase = actionType.substr(0, actionType.indexOf(str))
     return this._hist[fetchActionBase]
   }
 
   setRefs(action, refs, str) {
-    const actionType = get(action, 'type', '')
+    const actionType = action.type || ''
     const fetchActionBase = actionType.substr(0, actionType.indexOf(str))
     this._hist[fetchActionBase] = refs
   }

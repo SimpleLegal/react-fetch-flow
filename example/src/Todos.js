@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Loading from "./Loading";
-import { withReduxFlow } from "redux-fetch-flow";
+import { withReduxFlow } from "react-fetch-flow";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
