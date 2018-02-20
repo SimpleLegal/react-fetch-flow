@@ -33,7 +33,7 @@ Use npm or yarn to add:
 
 ```javascript
 import React from 'react'
-import { withFetchFlow } from 'redux-fetch-flow'
+import { withFetchFlow } from 'react-fetch-flow'
 import Loading from './Loading'
 import { onRequest } from "./api";
  
@@ -62,7 +62,7 @@ This manages when to set loading states. You will need to set up your request ac
 
 ```javascript
 
-import { fetchFlowMiddleware } from 'redux-fetch-flow'
+import { fetchFlowMiddleware } from 'react-fetch-flow'
 
 const middleware = [fetchFlowMiddleware] //add more if needed=
 
@@ -80,7 +80,7 @@ These will contain the loading states used by the HOC
 
 ```javascript
 import { combineReducers } from 'redux'
-import {loadingReducer} from 'redux-fetch-flow'
+import {loadingReducer} from 'react-fetch-flow'
 
 const rootReducer = combineReducers({
   //...other reducers
@@ -97,7 +97,7 @@ Apply the HOC to your container components that you want to have fetching respon
  ```javascript
  
  import React from 'react'
- import { withFetchFlowRedux } from 'redux-fetch-flow'
+ import { withFetchFlowRedux } from 'react-fetch-flow'
  import * as ACT from 'actions/actionTypes'
  import Loading from './Loading'
  
