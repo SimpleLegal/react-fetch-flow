@@ -97,11 +97,11 @@ Apply the HOC to your container components that you want to have fetching respon
  ```javascript
  
  import React from 'react'
- import { withFetchFlowRedux } from 'react-fetch-flow'
+ import { withReduxFlow } from 'react-fetch-flow'
  import * as ACT from 'actions/actionTypes'
  import Loading from './Loading'
  
- @withFetchFlowRedux({
+ @withReduxFlow({
    component: <Loading />, // loading component
    flag: "todo",                  // loading and loaded flag identifiers
    getFetchAction: props => ({ // put action that will be dispatched - follows _REQUESTED / _SUCCESS 
