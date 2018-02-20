@@ -40,7 +40,7 @@ import { onRequest } from "./api";
 @withFetchFlow({
   component: <Loading />,
   flag: "todos",
-  onRequest
+  onRequest //expects function that returns promise
 })
 class Todo extends React.Component {
   render(){
