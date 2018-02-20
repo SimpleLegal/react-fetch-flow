@@ -1,9 +1,7 @@
 # react-fetch-flow
-An opinionated framework for loading states, data fetching and routing behavior
+An opinionated framework for fetching data on initial page load
 
-For react applications utilizing react-router and redux
-
-[Demo](https://darrendahl.github.io/fetch-flow)
+[Demo](https://darrendahl.github.io/react-fetch-flow)
 
 ### Why
 
@@ -17,27 +15,29 @@ This library solves this problem.
 
 ### What
 
-Redux Fetch Flow is a Middleware, Higher Order Component (HOC), and simple Reducer that takes care or setting loading states, client side routing behavior (as it relates to loading), and data fetching. 
+React Fetch Flow is a higher order component (HOC), middleware, and a simple reducer that takes care or setting loading states, client side routing behavior (as it relates to loading), and data fetching. 
 
-It follows a philosophy to make the implementation simple and intuitive for the user. This philosophy is that the user wants the most up to date data as they navigate throughout the application without having to refresh the page, unless they explicitly say so (for instance, the user presses back). So, redux-fetch-flow will fetch data and set loading states whenever they push to browser history, and no other time. 
+It follows a philosophy to make the implementation simple and intuitive for the user. This philosophy is that the user wants the most up to date data as they navigate throughout the application without having to refresh the page, unless they explicitly say so (for instance, the user presses back). So, react-fetch-flow will fetch data and set loading states whenever they push to browser history, and no other time. 
 
-This philosophy leads to a straightforward implementation that is intuitive to the user.
+This philosophy leads to a straightforward implementation that is intuitive for the user. 
+
+The redux version has more features than the simple react version. Because you can navigate across the application and keep state in the store, the user can update state on one route, then navigate, then if user presses 'back' they will get the previous state. 
 
 Use npm or yarn to add:
 
-```yarn add redux-fetch-flow```
+```yarn add react-fetch-flow```
 
-```npm install redux-fetch-flow --save```
+```npm install react-fetch-flow --save```
 
 ### How to integrate with only React
 
 ```javascript
 import React from 'react'
-import { withRequestFlow } from 'redux-fetch-flow'
+import { withFetchFlow } from 'redux-fetch-flow'
 import Loading from './Loading'
 import { onRequest } from "./api";
  
-@withRequestFlow({
+@withFetchFlow({
   component: <Loading />,
   flag: "todos",
   onRequest
@@ -52,7 +52,7 @@ class Todo extends React.Component {
 
 ```
 
-### How to integrate with React/Redux
+### How to integrate with Redux
 
 There are 3 steps in order to get started:
 
@@ -91,17 +91,17 @@ const rootReducer = combineReducers({
  
  #### 3. Import Higher Order Component
  
-Apply the HOC to your container components that you want to have fetching responsibility, generally the component that your react-router ```<Route />``` component renders.
+Apply the HOC to your container components that you want to have fetching responsibility, generally the component that your react-router ```<Route />``` component renders. 
  
  
  ```javascript
  
  import React from 'react'
- import { withFetchFlow } from 'redux-fetch-flow'
+ import { withFetchFlowRedux } from 'redux-fetch-flow'
  import * as ACT from 'actions/actionTypes'
  import Loading from './Loading'
  
- @withFetchFlow({
+ @withFetchFlowRedux({
    component: <Loading />, // loading component
    flag: "todo",                  // loading and loaded flag identifiers
    getFetchAction: props => ({ // put action that will be dispatched - follows _REQUESTED / _SUCCESS 
