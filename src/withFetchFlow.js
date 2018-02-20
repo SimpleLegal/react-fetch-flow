@@ -56,4 +56,4 @@ const withFetchFlow = ({ onRequest, flag = "", component }) => {
   };
 };
 
-export default withRequestFlow;
+export default withFetchFlow;

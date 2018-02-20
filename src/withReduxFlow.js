@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 
-const withFetchFlow = ({ getFetchAction, flag="", component }) => {
+const withReduxFlow = ({ getFetchAction, flag="", component }) => {
   return WrappedComponent => {
     @connect(({ loading }) => {
       const isLoading = loading[`${flag}Loading`];
@@ -61,4 +61,4 @@ const withFetchFlow = ({ getFetchAction, flag="", component }) => {
   };
 };
 
-export default withFetchFlow;
+export default withReduxFlow;
