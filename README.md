@@ -1,7 +1,7 @@
 # react-fetch-flow
 An opinionated framework for fetching data on initial page load
 
-[Demo](https://darrendahl.github.io/react-fetch-flow)
+[Demo](https://simplelegal.github.io/react-fetch-flow)
 
 ### Why
 
