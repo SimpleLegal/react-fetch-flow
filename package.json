@@ -4,7 +4,7 @@
   "main": "dist/bundle.js",
   "repository": "https://github.com/SimpleLegal/react-fetch-flow",
   "author": "darrendahl <darrencdahl@gmail.com>",
-  "homepage" : "http://simplelegal.github.io/react-fetch-flow/example/build/",
+  "homepage" : "http://simplelegal.github.io/react-fetch-flow",
   "license": "Apache 2.0",
   "dependencies": {
     "react": "^16.2.0",
