@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Loading from "./Loading";
-import { withFetchFlow } from "redux-fetch-flow";
+import { withReduxFlow } from "redux-fetch-flow";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
@@ -11,7 +11,7 @@ const enhance = compose(
       todos
     };
   }),
-  withFetchFlow({
+  withReduxFlow({
     component: <Loading />,
     flag: "todo",
     getFetchAction: props => ({

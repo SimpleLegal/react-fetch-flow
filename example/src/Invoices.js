@@ -13,7 +13,7 @@ const enhance = compose(
       invoices
     };
   }),
-  withRequestFlow({
+  withFetchFlow({
     component: <Loading />,
     flag: "invoices",
     onRequest
