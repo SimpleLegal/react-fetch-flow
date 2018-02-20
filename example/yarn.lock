@@ -5170,9 +5170,9 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
-react-fetch-flow@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/react-fetch-flow/-/react-fetch-flow-0.1.3.tgz#3cbe043beda999d00fbda1c56a7819eb20ac56b2"
+react-fetch-flow@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-fetch-flow/-/react-fetch-flow-0.1.4.tgz#303a7fe3332b6cdcfe95e6527eb4141a5e63d52a"
   dependencies:
     react "^16.2.0"
     react-redux "^5.0.6"
