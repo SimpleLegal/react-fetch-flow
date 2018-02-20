@@ -1,8 +1,8 @@
 {
-  "name": "redux-fetch-flow",
-  "version": "0.1.1",
+  "name": "react-fetch-flow",
+  "version": "0.1.2",
   "main": "dist/bundle.js",
-  "repository": "https://github.com/SimpleLegal/fetch-flow",
+  "repository": "https://github.com/SimpleLegal/react-fetch-flow",
   "author": "darrendahl <darrencdahl@gmail.com>",
   "license": "Apache 2.0",
   "dependencies": {

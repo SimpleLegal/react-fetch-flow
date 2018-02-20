@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Loading from "./Loading";
 import { connect } from "react-redux";
 import { compose } from "redux";
+import { withFetchFlow } from 'react-fetch-flow'
 import { onRequest } from "./fetch";
 import { withRouter } from "react-router-dom";
 

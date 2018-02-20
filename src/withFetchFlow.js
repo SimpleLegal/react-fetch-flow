@@ -1,64 +1,59 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
 
-
-const withFetchFlow = ({ getFetchAction, flag="", component }) => {
+const withFetchFlow = ({ onRequest, flag = "", component }) => {
   return WrappedComponent => {
-    @connect(({ loading }) => {
-      const isLoading = loading[`${flag}Loading`];
-      const dataLoaded = loading[`${flag}Loaded`];
-      return {
-        isLoading,
-        dataLoaded
-      };
-    })
-    @withRouter
     class ApiFlowWrapper extends React.Component {
-      componentDidMount() {
-        const { history, dataLoaded } = this.props;
+      constructor(props) {
+        super(props);
+        this.state = {
+          isLoading: true,
+          dataLoaded: false
+        };
+      }
 
-        let action = getFetchAction(this.props);
+      componentDidMount() {
+        const { dataLoaded } = this.state;
 
         // detects back button pressing, dont fetch on back button
-        if (history.action === "POP" && !!dataLoaded) {
+        if (!!dataLoaded) {
           return;
         }
 
-        action.refs = {
-          isLoading: `${flag}Loading`,
-          dataLoaded: `${flag}Loaded`
-        };
-        this.props.dispatch(action);
+        onRequest().then(this.onSuccess);
       }
 
       componentWillReceiveProps(nextProps) {
         const { history, location } = this.props;
         // detects refresh by navigating to same route
-        let action = getFetchAction(nextProps);
         if (
           history.action === "PUSH" &&
           nextProps.location.key !== location.key &&
           location.pathname === nextProps.location.pathname
         ) {
-          action.refs = {
-            isLoading: `${flag}Loading`,
-            dataLoaded: `${flag}Loaded`
-          };
-          this.props.dispatch(action);
+          this.setState({ isLoading: true, dataLoaded: false });
+          onRequest().then(this.onSuccess);
         }
       }
 
+      onSuccess = result => {
+        let state = {};
+        state[flag] = result;
+        state.dataLoaded = true;
+        state.isLoading = false;
+        this.setState(state);
+      };
+
       render() {
-        if (this.props.isLoading) {
+        if (this.state.isLoading) {
           return component;
         }
 
-        return <WrappedComponent {...this.props} />;
+        return <WrappedComponent {...this.props} {...this.state} />;
       }
     }
-    return ApiFlowWrapper;
+    return withRouter(ApiFlowWrapper);
   };
 };
 
-export default withFetchFlow;
+export default withRequestFlow;
