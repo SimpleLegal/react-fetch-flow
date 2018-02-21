@@ -1,5 +1,5 @@
 # react-fetch-flow
-An opinionated framework for fetching data on initial page load
+A framework for fetching initial data on page load
 
 [Sandbox Demo](https://codesandbox.io/s/5v89j55yj4)
 
@@ -9,7 +9,7 @@ Fetching data on page load in React Single Page Applications is not straightforw
 
 You must set loading states, use component lifecycle methods to fetch, while making sure you dont fetch data too often (or not enough) when the user navigates around your application. 
 
-The result is a bug prone implementation that you have to think through a lot to get right (and you shouldn't have to!)
+The result is a bug prone implementation that you have to think through a lot to get right (and you shouldn't have to)!
 
 This library solves this problem.
 
