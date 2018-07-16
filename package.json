@@ -1,6 +1,6 @@
 {
   "name": "react-fetch-flow",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "dist/bundle.js",
   "repository": "https://github.com/SimpleLegal/react-fetch-flow",
   "author": "darrendahl <darrencdahl@gmail.com>",
