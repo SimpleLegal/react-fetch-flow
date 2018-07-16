@@ -1,4 +1,4 @@
-import { SET_LOADING_FLAGS } from './actionTypes'
+const SET_LOADING_FLAGS = 'SET_LOADING_FLAGS'
 
 let instance = null
 const sucStr = '_SUCCESS'
@@ -11,6 +11,27 @@ const isRequest = action => {
 const isSuccess = action => {
   return action.type.includes(sucStr)
 }
+
+const isError = action => {
+  return action.type.includes(sucStr)
+}
+
+const checkAllLoaded = () => {
+  let allLoaded = true
+
+  for (let i in window.loadingRefs) {
+    if (!window.loadingRefs[i]) {
+      allLoaded = false
+      break
+    }
+  }
+
+  if (allLoaded && Object.keys(window.loadingRefs).length) {
+    window.loadingRefs.allLoaded = true
+  }
+}
+
+window.loadingRefs = {}
 
 class RefCache {
   constructor() {
@@ -27,6 +48,10 @@ class RefCache {
     const actionType = action.type || ''
     const fetchActionBase = actionType.substr(0, actionType.indexOf(str))
     return this._hist[fetchActionBase]
+  }
+
+  getAllRefs() {
+    return this._hist
   }
 
   setRefs(action, refs, str) {
@@ -55,7 +80,7 @@ const fetchFlowMiddleware = ({ dispatch }) => next => action => {
   refCache = new RefCache(action)
   cachedRefs = refCache.getRefs(action, sucStr)
 
-  if (!isRequest(action) && !isSuccess(action)) {
+  if (!isRequest(action) && !isSuccess(action) && !isError(action)) {
     return
   }
 
@@ -67,6 +92,8 @@ const fetchFlowMiddleware = ({ dispatch }) => next => action => {
     refCache.setRefs(action, action.refs, reqStr)
     payload[action.refs.isLoading] = true
     payload[action.refs.dataLoaded] = action.dataLoaded
+
+    window.loadingRefs[action.refs.dataLoaded] = false
     result = dispatch({ type: SET_LOADING_FLAGS, payload })
   }
 
@@ -74,9 +101,25 @@ const fetchFlowMiddleware = ({ dispatch }) => next => action => {
     payload[cachedRefs.isLoading] = false
     payload[cachedRefs.dataLoaded] = true
     result = dispatch({ type: SET_LOADING_FLAGS, payload })
+    window.loadingRefs[cachedRefs.dataLoaded] = true
+
+    // make window object aware that all loadingRefs have finished
+    checkAllLoaded()
 
     // clear cache after success
     refCache.setRefs(action, {}, sucStr)
+  }
+
+  if (isError(action)) {
+    const allRefs = refCache.getAllRefs()
+    for (let ref in allRefs) {
+      payload[allRefs[ref].isLoading] = false
+      payload[allRefs[ref].dataLoaded] = false
+    }
+
+    // make window object aware that all loadingRefs have finished
+    checkAllLoaded()
+    result = dispatch({ type: SET_LOADING_FLAGS, payload })
   }
 
   return result
